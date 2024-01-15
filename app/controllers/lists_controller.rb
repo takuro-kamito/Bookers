@@ -9,5 +9,6 @@ class ListsController < ApplicationController
   end
 
   def edit
+    private
   end
 end
