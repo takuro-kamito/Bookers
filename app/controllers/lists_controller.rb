@@ -1,5 +1,6 @@
 class ListsController < ApplicationController
   def new
+   @list = List.new
   end
 
   def index
@@ -9,6 +10,9 @@ class ListsController < ApplicationController
   end
 
   def edit
-    private
   end
+  def create
+  end
+  
+  
 end
