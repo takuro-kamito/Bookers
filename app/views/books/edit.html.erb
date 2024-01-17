@@ -1,0 +1,24 @@
+<h1>Editing Book</h1>
+
+<%if @book.errors.any? %>
+<ul>
+    <% @book.errors.full_massages.each do |massage| %>
+    <li><%= massage %></li>
+    <% end %>
+    </ul>
+    <% end %>
+    
+<%= form_for(@book) do |f| %>
+<br><% f.label :Title %></br>
+<%= f.text_field :title %>
+
+<h4>Body</h4>
+<%= f.text_area :body %>
+<%= f.submit 'Update Book' %>
+<% end %>
+
+<%= link_to "edit", edit_book_path(@book) %>
+
+<%= link_to "back", books_path(@book) %>
+
+
