@@ -3,6 +3,7 @@ class BooksController < ApplicationController
    def top
    end 
    
+   
    def new
    @book = Book.new
    end 
@@ -13,37 +14,49 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+   @book = Book.find(params[:id])
+   @notice = flash[:notice]
   end
 
     
   def edit
   @book = Book.find(params[:id])
-  end 
-    
-    def update
-     @book = Book.find(params[:id])
-      if @book.update(book_params)
-      redirect_to book_path(@book)
-    else
-      render :edit
-    end 
+  @notice = flash[:notice]
   end 
     
     def create
   @book = Book.new(book_params)
   if @book.save
-    redirect_to books_path(@book.id)
     flash[:notice] = "Book was successfully created."
+    redirect_to book_path(@book)
   else
-    render :new
-  end  end
+   @books = Book.all
+    render :index
+  end
+  end
+    def update
+     @book = Book.find(params[:id])
+      if @book.update(book_params)
+        flash[:notice] = "Book was successfully updated."
+      redirect_to book_path(@book)
+    else
+    flash[:notice] = "errors prohibited this book from being saved:"
+    @books = Book.all
+      render :edit
+    end 
+  end 
   
   def destroy
-    @book = Book.find(params[:id])
-    @book.destroy 
+  @book = Book.find(params[:id])
+  if @book.destroy
+    flash[:notice] = "Book was successfully destroyed."
     redirect_to books_path
-  end 
+  else
+    flash[:notice] = "Errors prohibited this book from being saved"
+    @book = Book.all
+    render :index
+  end
+  end
 
   
   private
