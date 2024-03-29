@@ -1,24 +1,6 @@
-# README
+# Bookers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Ruby on Railsでの基礎的なCRUDページ制作課題
 
-Things you may want to cover:
+・読んだ本の感想を投稿するサイト
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
