@@ -15,13 +15,11 @@ class BooksController < ApplicationController
 
   def show
    @book = Book.find(params[:id])
-   @notice = flash[:notice]
   end
 
 
   def edit
   @book = Book.find(params[:id])
-  @notice = flash[:notice]
   end
 
     def create
@@ -33,7 +31,7 @@ class BooksController < ApplicationController
     @books = Book.all
    render :index
   end
-  end
+end
 
     def update
      @book = Book.find(params[:id])
@@ -45,7 +43,7 @@ class BooksController < ApplicationController
     @books = Book.all
       render :edit
     end
-  end
+    end
 
   def destroy
   @book = Book.find(params[:id])
